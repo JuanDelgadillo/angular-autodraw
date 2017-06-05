@@ -1,0 +1,41 @@
+h1, h2 {
+  text-align: center;
+}
+
+canvas {
+  border: 1px solid #B3C8B6;
+  display: block;
+  margin-left: 40px;
+  background-color: white;
+}
+
+.clear-canvas-button {
+  margin-left: 40px;
+  margin-top: 10px;
+  padding: 7px;
+  border-radius: 5px;
+  background-color: #B3C8B6;
+  cursor: pointer;
+  outline: none;
+}
+
+.autodraw-results {
+  left: 420px;
+  top: 130px;
+  width: 650px;
+  position: absolute;
+  height: 350px;
+  overflow-y: auto;
+  background-color: white;
+  box-shadow: 0px 1px 8px #B3C8B6;
+}
+
+.autodraw-image {
+  border: 1px solid #B3C8B6;
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  padding: 0;
+  margin: 5px;
+  cursor: pointer;
+}
