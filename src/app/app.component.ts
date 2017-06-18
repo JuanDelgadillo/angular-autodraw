@@ -19,10 +19,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   drawSuggestions: Array<object>;
 
-  canvasMouseMoveEvent: Subscription;
-  canvasMouseDownEvent: Subscription;
-  canvasMouseOutEvent:  Subscription;
-  canvasMouseUpEvent:   Subscription;
+  canvasMouseEventSubscriptions: Subscription[];
 
   previousXAxis: number = 0;
   previousYAxis: number = 0;
@@ -39,37 +36,19 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit () {
     this.autoDrawService.loadStencils();
     this.context = this.canvas.nativeElement.getContext('2d');
+    let mouseEvents = ['mousemove', 'mousedown', 'mouseup', 'mouseout'];
 
-    this.canvasMouseMoveEvent = Observable
-      .fromEvent(this.canvas.nativeElement, 'mousemove')
-      .subscribe((event: MouseEvent) => {
-        this.draw(event);
-      });
-
-    this.canvasMouseDownEvent = Observable
-      .fromEvent(this.canvas.nativeElement, 'mousedown')
-      .subscribe((event: MouseEvent) => {
-        this.draw(event);
-      });
-
-    this.canvasMouseUpEvent = Observable
-      .fromEvent(this.canvas.nativeElement, 'mouseup')
-      .subscribe((event: MouseEvent) => {
-        this.draw(event);
-      });
-
-    this.canvasMouseOutEvent = Observable
-      .fromEvent(this.canvas.nativeElement, 'mouseout')
-      .subscribe((event: MouseEvent) => {
-        this.draw(event);
-      });
+    this.canvasMouseEventSubscriptions = mouseEvents.map(
+      (mouseEvent: string) => Observable
+        .fromEvent(this.canvas.nativeElement, mouseEvent)
+        .subscribe((event: MouseEvent) => this.draw(event))
+    );
   }
 
   ngOnDestroy () {
-    this.canvasMouseUpEvent.unsubscribe();
-    this.canvasMouseOutEvent.unsubscribe();
-    this.canvasMouseMoveEvent.unsubscribe();
-    this.canvasMouseDownEvent.unsubscribe();
+    for (let mouseEventSubscription of this.canvasMouseEventSubscriptions) {
+      mouseEventSubscription.unsubscribe();
+    }
   }
 
   eraseCanvas () {
