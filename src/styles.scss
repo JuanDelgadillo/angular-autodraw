@@ -18,6 +18,15 @@ header {
   h1, h2 {
     text-align: center;
     margin: 0;
+
+    a {
+      text-decoration: none;
+      color: white;
+
+      &:hover {
+        text-decoration:underline;
+      }
+    }
   }
 }
 
