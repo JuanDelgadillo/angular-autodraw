@@ -1,6 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 
-body {
-  background-image: url(https://s-media-cache-ak0.pinimg.com/originals/7e/21/71/7e21717044d258969ce9dbf177d8ba10.jpg);
-  background-size: 40% 70%;
+html {
+  background: #f5f5f5 url(/assets/background.png);
+  font-family: 'Roboto', sans-serif;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #ff4f75;
+  color: white;
+  padding: 10px;
+
+  h1, h2 {
+    text-align: center;
+    margin: 0;
+  }
+}
+
+
+

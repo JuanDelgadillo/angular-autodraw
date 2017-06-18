@@ -1,9 +1,13 @@
-<h1>Google's Autodraw AI API with Angular</h1>
-<h2>Made with love by Juan Delgadillo</h2>
+<header>
+  <h1>Google's Autodraw AI API with Angular</h1>
+  <h2>Made with love by Juan Delgadillo</h2>
+</header>
 
-<canvas #canvas width="350" height="350"></canvas>
+<div class="canvas">
+  <canvas #canvas width="350" height="350"></canvas>
+  <button type="button" class="clear-canvas-button" (click)="eraseCanvas()">Clear canvas</button>
+</div>
 
-<button type="button" class="clear-canvas-button" (click)="eraseCanvas()">Clear canvas</button>
 
 <div class="autodraw-results">
   <ng-template ngFor [ngForOf]="drawSuggestions" let-suggestion>
