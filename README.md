@@ -1,5 +1,10 @@
 # AngularAutodraw
 
+AutoDraw is a Google’s AI experiment they launched few weeks ago which allows you to draw or at least to doodle anything you’d like to draw and then through AI and pre-trained artificial neural networks it recommends you possible icons you’d be looking for.
+
+This repo is the result of this blog post: [
+Integrating Google’s AutoDraw AI API with Angular](https://delgadillojuan.com/en/blog/integrating-googles-autodraw-ai-api-with-angular/?utm_source=Github&utm_medium=autodraw-repo) where you'll find more details how this code works.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server
